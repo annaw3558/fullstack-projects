@@ -1,0 +1,66 @@
+.register {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0.5)
+        ), 
+        url("https://travel.destinationcanada.com/_next/image?url=https%3A%2F%2Fadmin.destinationcanada.com%2Fsites%2Fdefault%2Ffiles%2Fimages%2Farticle%2Ffall_colours_alberta_-_banff_lake_louise_tourism_paul_zizka.jpg&w=1920&q=75");
+    background-size: cover;
+}
+
+.registerTitle {
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.registerForm {
+    margin-top: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm > label {
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.registerInput {
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.registerButton {
+    width: 100px;
+    align-self: center;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    color: grey;
+    border-radius: 10px;
+}
+
+.loginForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.loginForm > label {
+    margin-top: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loginButton {
+    height: 25px;
+    margin-left: 10px;
+    color: grey;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
