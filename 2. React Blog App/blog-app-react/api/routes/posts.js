@@ -72,8 +72,8 @@ router.get("/:id", async (req, res)=> {
 
 //Get all posts from user or specific category
 router.get("/", async (req, res)=> {
-    const username = req.body.username;
-    const category = req.body.category;
+    const username = req.query.user;
+    const category = req.query.cat;
 
     try{
         let posts;
@@ -89,7 +89,6 @@ router.get("/", async (req, res)=> {
         } else {
             posts = await Post.find();
         }
-
         res.status(200).json(posts);
 
     }catch(err){

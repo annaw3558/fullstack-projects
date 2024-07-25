@@ -16,7 +16,8 @@ export default function SinglePost() {
 
     useEffect(() =>{
         const getPost = async () => {
-            const res = axios.get("/posts/"+ path);
+            const res = await axios.get("/posts/" + path);
+            console.log(res);
             setPost(res.data);
         };
         getPost()
@@ -34,6 +35,7 @@ export default function SinglePost() {
             )}
             <h1 className="singlePostTitle">
                 {post.title}
+                
                 <div className="singlePostEdit">
                     <i className='singlePostIcon far fa-edit'></i>
                     <i className='singlePostIcon far fa-trash-alt'></i>

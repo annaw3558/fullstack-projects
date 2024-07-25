@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import './sidebar.css';
 
 export default function Sidebar() {
-
     const [cats, setCats] = useState([]);
+
     useEffect(() => {
         const getCats = async ()=> {
             const res = await axios.get("/categories")
