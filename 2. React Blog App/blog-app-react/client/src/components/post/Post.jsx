@@ -1,33 +1,31 @@
 import './post.css'
+import {Link} from "react-router-dom"
 
-export default function Post() {
+export default function Post({post}) {
   return (
         <>
             <div className='post'>
-                <img 
-                    className='postImg'
-                    src='https://peakvisor.com/photo/Alberta-Canada-Banff-National-Park.jpg'
-                    alt='Post'
-                />
+                {post.photo && (
+                    <img 
+                        className='postImg'
+                        src={post.photo}
+                        alt='Post'
+                    />
+                )}
                 <div className='postInfo'>
                     <div className='postCategories'>
-                        <span className='postCategory'>Music</span>
-                        <span className='postCategory'>Life</span>
+                        {post.categories.map((c)=> (
+                            <span className='postCategory'>c.name</span>
+                        ))}
                     </div>
-                    <span className='postTitle'>Lorem ipsum</span>
+                    <Link to={`/post/${post._id}`} className='link'>
+                        <span className='postTitle'>{post.title}</span>
+                    </Link>
                     <hr/>
-                    <span className='postDate'>1 hour ago</span>
+                    <span className='postDate'>{new Date(post.createdAt).toDateString()}</span>
                 </div>
                 <p className="postDescription">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing 
-                    elit. A deserunt perspiciatis consectetur sapiente 
-                    impedit perferendis, voluptates alias. 
-                    Lorem ipsum, dolor sit amet consectetur adipisicing 
-                    elit. A deserunt perspiciatis consectetur sapiente 
-                    impedit perferendis, voluptates alias.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing 
-                    elit. A deserunt perspiciatis consectetur sapiente 
-                    impedit perferendis, voluptates alias.
+                    {post.desc}
                 </p>
             </div>
         </>
