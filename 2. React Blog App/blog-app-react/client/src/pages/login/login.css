@@ -44,6 +44,10 @@
     color: grey;
     border-radius: 10px;
 }
+.loginButton:disabled {
+    cursor: not-allowed;
+    background-color: lightgray;
+}
 
 .registerForm {
     margin-top: 20px;
