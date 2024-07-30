@@ -1,14 +1,15 @@
-import './login.css';
-import {Link} from 'react-router-dom';
+import "./login.css";
+import { Link } from "react-router-dom";
 import { Context } from "../../context/Context"
-import { useRef, useContext } from 'react';
+import { useRef, useContext } from "react";
 import axios from "axios";
-
+// todo login css broke
+// got it working but broke again :(
 export default function Login() {
 
   const usernameRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context);
+  const { dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,24 +26,22 @@ export default function Login() {
     }
   };
 
-  console.log(isFetching);
-
   return (
-    <div className='login'>
+    <div className="login">
         <span className="loginTitle">Login</span>
         <form className="loginForm" onSubmit={handleSubmit}>
             <label>Username</label>
             <input 
-              type='text' 
-              className='loginInput' 
-              placeholder='Enter your username...'
+              type="text" 
+              className="loginInput" 
+              placeholder="Enter your username..."
               ref={usernameRef}
             />
             <label>Password</label>
             <input 
-              type='password' 
-              className='loginInput' 
-              placeholder='Enter your password...'
+              type="password" 
+              className="loginInput" 
+              placeholder="Enter your password..."
               ref={passwordRef}
             />
             <button 
@@ -56,7 +55,7 @@ export default function Login() {
         <form className="registerForm">
             <label>Don't Have an Account?</label>
             <button className="registerButton">
-              <Link to='/register'>Register Here</Link>
+              <Link to="/register">Register Here</Link>
             </button>
         </form>
     </div>

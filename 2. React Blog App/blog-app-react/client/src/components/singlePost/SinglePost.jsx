@@ -1,13 +1,10 @@
-import {useContext, useEffect, useState} from "react";
-import {useLocation} from "react-router";
+import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../context/Context"
 
 import './singlePost.css';
-
-//todo - go through above statements and make them have spaces
-// {package} => { package }
 
 export default function SinglePost() {
     const location = useLocation();
@@ -22,6 +19,7 @@ export default function SinglePost() {
 
     useEffect(() =>{
         const getPost = async () => {
+            
             const res = await axios.get("/posts/" + path);
             console.log(res);
             setPost(res.data);
@@ -33,22 +31,22 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete("/posts/" + path, {data: {username: user.username}});
+            await axios.delete(`/posts/${post._id}`, {data: {username: user.username}});
             window.location.replace("/");
         } catch(err) { }
-    }
+    };
 
     const handleUpdate = async () => {
         try {
-            await axios.put("/posts/" + path, {data: {
+            await axios.put(`/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc,
-                }
             });
             setUpdateMode(false);
-            window.location.reload();
-        } catch(err) { }
+        } catch(err) { 
+            console.log(err)
+        }
     }
 
   return (

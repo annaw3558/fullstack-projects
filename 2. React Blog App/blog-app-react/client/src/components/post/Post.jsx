@@ -1,5 +1,5 @@
 import './post.css'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function Post({post}) {
     const imgPath = "http://localhost:8080/img/"; 

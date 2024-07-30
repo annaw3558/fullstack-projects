@@ -13,7 +13,8 @@ const app = express();
 
 dotenv.config();
 app.use(express.json());
-app.use("/img", express.static(path.join(__dirname, "/img")));
+app.use("./img", express.static(path.join(__dirname, "./img")));
+console.log(path)
 
 mongoose.connect(process.env.MONGO_URL)
     .then(console.log("Connected to MongoDB"))
@@ -25,7 +26,7 @@ const storage = multer.diskStorage({
         cb(null, "img")
     }, filename: (req, file, cb) =>{
         cb(null, req.body.name)
-        // cb(null, "anna_dog.png")
+        // cb(null, "anna_dog2.png")
     },
 });
 
