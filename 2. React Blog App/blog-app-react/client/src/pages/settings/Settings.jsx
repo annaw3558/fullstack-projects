@@ -3,7 +3,6 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import { Context } from "../../context/Context"
 import { useContext, useState } from 'react';
 import axios from "axios";
-// todo add about me section, about page, contact page
 
 export default function Settings() {
 
@@ -12,6 +11,7 @@ export default function Settings() {
     const [file, setFile] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [aboutme, setAboutme] = useState("");
     const [password, setPassword] = useState("");
     const [success, setSuccess] = useState(false);
 
@@ -24,6 +24,7 @@ export default function Settings() {
       userID: user._id,
       username,
       email,
+      aboutme,
       password,
     };
     if (file) {
@@ -79,6 +80,12 @@ export default function Settings() {
                     type='text' 
                     placeholder={user.email} 
                     onChange={e=>setEmail(e.target.value)}
+                />
+                <label>About Me:</label>
+                <input 
+                    type='text' 
+                    placeholder={user.email} 
+                    onChange={e=>setAboutme(e.target.value)}
                 />
                 <label>Password:</label>
                 <input 

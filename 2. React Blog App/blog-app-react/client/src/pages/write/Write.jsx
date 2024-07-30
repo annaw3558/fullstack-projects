@@ -18,6 +18,7 @@ export default function Write() {
       username: user.username,
     };
     if (file) {
+      console.log("reached")
       const data = new FormData();
       const fileName = Date.now() + file.name; 
       data.append("name", fileName)
@@ -25,14 +26,16 @@ export default function Write() {
 
       newPost.photo = fileName;
       try {
-        await axios.post("/upload", data)
-      } catch(err) { }
+        await axios.post("/upload/", data)
+      } catch(err) { 
+        console.log(err.response.data);
+      }
     }
     try {
       const res = await axios.post("/posts", newPost)
       window.location.replace("/post/" + res.data._id)
     } catch(err) { }
-  }
+  };
 
   return (
     <div className='write'>

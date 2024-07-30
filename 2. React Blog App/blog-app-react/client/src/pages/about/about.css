@@ -1,0 +1,43 @@
+.about {
+    flex: 9;
+    margin-top: 40px    ;
+}
+
+.aboutTitle {
+    text-align: center;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+}
+
+.aboutTitleInput {
+    text-align: center;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+    border:none;
+    color: gray;
+    border-bottom: 1px solid lightgray;
+}
+
+.aboutDescription {
+    text-align: left;
+    margin: 20px;
+    color: #666;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.aboutDescription:first-letter {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.aboutSig {
+    text-align: center;
+    margin-left: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-style: italic;
+}

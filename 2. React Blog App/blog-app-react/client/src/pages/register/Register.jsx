@@ -1,12 +1,13 @@
 import { useState } from "react";
 import './register.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 export default function Register() {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [aboutme, setAboutme] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -17,6 +18,7 @@ export default function Register() {
       const res = await axios.post("/auth/register/", {
       username,
       email,
+      aboutme,
       password
       });
       console.log(res);
@@ -43,6 +45,13 @@ export default function Register() {
               className='registerInput' 
               placeholder='Enter your email...'
               onChange={e=> setEmail(e.target.value)}
+            />
+            <label>About Me</label>
+            <input 
+              type='text' 
+              className='registerInput' 
+              placeholder='Enter a blurb about yourself...'
+              onChange={e=> setAboutme(e.target.value)}
             />
             <label>Password</label>
             <input 

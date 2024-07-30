@@ -49,11 +49,13 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
+    text-decoration: none;
 }
 
 .loginForm > label {
     margin-top: 3px;
     font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
 }
 
 .loginButton {
@@ -63,4 +65,5 @@
     cursor: pointer;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
 }

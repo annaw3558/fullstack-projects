@@ -1,0 +1,11 @@
+.contact {
+    flex: 9;
+    margin-top: 40px    ;
+}
+
+.contactTitle {
+    text-align: center;
+    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
