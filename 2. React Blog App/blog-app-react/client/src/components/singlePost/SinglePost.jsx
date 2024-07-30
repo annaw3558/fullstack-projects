@@ -10,7 +10,8 @@ export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] =useState({});
-    const imgPath = "http://localhost:8080/img/";
+    const imgPath = "http://localhost:8080/api/img/";
+    
     const { user } = useContext(Context);
 
     const [title, setTitle] = useState("");

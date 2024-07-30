@@ -2,8 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './sidebar.css';
+import { Context } from "../../context/Context"
+import { useContext } from 'react';
 
 export default function Sidebar() {
+    const { user, dispatch } = useContext(Context);
     const [cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -16,20 +19,31 @@ export default function Sidebar() {
 
   return (
       <>
-        <div className='sidebar'>
-            <div className='sidebarItem'>
-                <span className='sidebarTitle'>About Me</span>
-                <img
-                    className='sidebarImg'
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                    alt="img"
-                />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Odit maxime, rerum corrupti itaque et ducimus explicabo 
-                    cumque assumenda commodi.
-                </p>
-            </div>
+        <div className='sidebar'>            
+                {
+                    user ? (
+                        <div className='sidebarItem'>
+                        <span className='sidebarTitle'>About Me</span>
+                        <img
+                            className='sidebarImg'
+                            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                            alt="img"
+                        />
+                        <p>
+                            {user.aboutme}
+                        </p>
+                        </div>
+
+                    ) : (
+                        <div className='sidebarItem'>
+                        <p className="sidebarGeneral">
+                        Welcome to Anna's Blog App. Please explore some of the categories below:
+                        </p>
+                        </div>
+                    )
+                }
+                
+            
             <div className='sidebarItem'>
                 <span className='sidebarTitle'>Categories</span>
                 <ul className='sidebarList'>

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context"
 import { useRef, useContext } from "react";
 import axios from "axios";
-// todo login css broke
-// got it working but broke again :(
+// todo login css
 export default function Login() {
 
   const usernameRef = useRef();

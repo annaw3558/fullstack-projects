@@ -13,14 +13,6 @@ export default function TopBar() {
 
   return (
     <div className='top'>
-      {/* <div className='topLeft'>
-            left
-            <i className='topIcon fab fa-facebook-square'></i>
-            <i className='topIcon fab fa-twitter-square'></i>
-            <i className='topIcon fab fa-github-square'></i>
-            <i className='topIcon fab fa-instagram-square'></i>
-            <i className='topIcon fab fa-pinterest-square'></i>
-      </div> */}
       <div className='topCenter'>
           <ul className='topList'>
                 <li className='topListItem'>
@@ -35,18 +27,13 @@ export default function TopBar() {
                 <li className='topListItem'>
                   <Link to='/write' style={{textDecoration:'none', color:"inherit"}}>Write</Link>
                 </li>
-                <li className='topListItem' onClick={handleLogout}>
-                  {/* <Link to='/' style={{textDecoration:'none', color:"inherit"}}>Logout</Link> */}
-                  {user && 'Logout'}
-                </li>
           </ul>
       </div>
       <div className='topRight'>
           <i className="topSearchIcon fas fa-search"></i>
+           <p className='topListItem' onClick={handleLogout}>{user && 'Logout'}</p>
           {
           user ? (
-            // todo add user profile pic code here
-            // <i className="topIcon fa-solid fa-user"></i>
             <Link to="/settings">
               <img
                 className="topImg"
