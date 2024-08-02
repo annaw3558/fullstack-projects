@@ -25,17 +25,10 @@ const connect = async () => {
     try {
         await mongoose.connect(process.env.MONGO)
         console.log("Connected to Mongodb")
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 };
-
-// app.get("/api/test", ClerkExpressRequireAuth(),(req, res) => {
-//   const userId = req.auth.userId;
-//   console.log("Success")
-//   console.log(userId)
-//   res.send("Success");
-// });
 
 app.post("/api/chats", 
   ClerkExpressRequireAuth(),
@@ -68,7 +61,7 @@ app.post("/api/chats",
             ],
           });
 
-      await newUserChats.save()
+      await newUserChats.save();
       } else {
           //Chat exists, so push the chat to the existing array
           await UserChats.updateOne(
@@ -84,9 +77,9 @@ app.post("/api/chats",
             );
       res.status(201).send(newChat._id);
       }
-  } catch(err) {
-      console.log(err)
-      res.status(500).send("Error creating chat.")
+  } catch (err) {
+      console.log(err);
+      res.status(500).send("Error creating chat.");
   }
 });
 
@@ -99,7 +92,7 @@ app.get("/api/userchats",
       const userChats = await UserChats.find({userId});
 
       res.status(200).send(userChats[0].chats);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       res.status(500).send("Error fetching user chats")
     }
@@ -114,7 +107,7 @@ app.get("/api/chats/:id",
       const chat = await Chat.findOne({ _id: req.params.id, userId });
       
       res.status(200).send(chat);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       res.status(500).send("Error fetching user chats")
     }
@@ -129,25 +122,27 @@ app.put("/api/chats/:id",
     
     const newItems = [
       ...(question
-        ? [{role: "user", parts: [{ text: question }]}]
+        ? [{ role: "user", parts: [{ text: question }] }]
         : []),
-      {role: "model", parts: [{text: answer}]},
+      { role: "model", parts: [{ text: answer }] },
     ];
     try {
-      const updatedChat = await Chat.updateOne({ _id: req.params.id, userId }, {
+      const updatedChat = await Chat.updateOne({ 
+        _id: req.params.id, userId }, 
+        {
         $push: {
           history: {
             $each: newItems,
           },
         },
-      });
-
+        }
+      );
       res.status(200).send(updatedChat);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       res.status(500).send("Error sending conversation");
     }
-})
+});
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -158,5 +153,3 @@ app.listen(port, () => {
     connect();
     console.log("server running on port 3000...")
 });
-
-console.log("test23")
