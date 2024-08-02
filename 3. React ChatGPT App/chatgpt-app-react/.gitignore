@@ -3,6 +3,7 @@ dist
 dist-ssr
 *.local
 .env
+.eslintrc.cjs
 
 .vscode/*
 !.vscode/extensions.json
